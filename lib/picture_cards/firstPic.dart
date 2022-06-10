@@ -10,14 +10,24 @@ class _firstPicState extends State<firstPic> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //onTap: Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage())),
+      onTap: () {
+        Navigator.pop(context);
+      }
+      /* Navigator.push(
+        context, MaterialPageRoute(
+          builder: (context) => const HomePage())) */
+      ,
       child: Scaffold(
           body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('hello', style: TextStyle(color: Colors.amber, fontSize: 30),)])
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              'hello',
+              style: TextStyle(color: Colors.amber, fontSize: 30),
+            )
+          ])
         ],
       )),
     );
