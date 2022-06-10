@@ -1,0 +1,3 @@
+/* 
+fix going back to the homepage when the screen is tapped
+*/
