@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:sliver_app_bar/pages/secondPage.dart';
+import 'pages/firstPage.dart';
 import 'picture_cards/firstPic.dart';
 import 'picture_cards/secondPic.dart';
 import 'picture_cards/thirdPic.dart';
+import 'pages/secondPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.deepPurple,
-            leading: Icon(Icons.menu),
+            //leading: Icon(Icons.menu),
             title: Text('M Y  A P P'),
             elevation: 0,
             collapsedHeight: 100,
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               title: Text('hello'),
               background: Container(
                 color: Colors.pink[400],
-                child: Icon(Icons.announcement_rounded),
+                child: Icon(Icons.announcement_rounded, color: Colors.white,),
               ),
             ),
           ),
@@ -42,8 +44,7 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => firstPic()));
+                  context, MaterialPageRoute(builder: (context) => firstPic()));
             },
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -68,11 +69,10 @@ class _HomePageState extends State<HomePage> {
             ),
           )),
           SliverToBoxAdapter(
-               child: GestureDetector(
+              child: GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => secondPic()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => secondPic()));
             },
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -97,11 +97,10 @@ class _HomePageState extends State<HomePage> {
             ),
           )),
           SliverToBoxAdapter(
-               child: GestureDetector(
+              child: GestureDetector(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => thirdPic()));
+                  context, MaterialPageRoute(builder: (context) => thirdPic()));
             },
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -126,6 +125,53 @@ class _HomePageState extends State<HomePage> {
             ),
           ))
         ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.deepPurple[100],
+          child: ListView(
+            children: [
+              DrawerHeader(
+                  child: Center(
+                child: Text(
+                  'D E F N E',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white),
+                ),
+              )),
+              ListTile(
+                leading: Icon(Icons.music_note, size: 20, color: Colors.white),
+                title: Text(
+                  'Page 1',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: ((context) => firstPage())));
+                },
+              
+              ),
+              ListTile(
+                leading: Icon(Icons.airplay_rounded, color: Colors.white,),
+                title: Text(
+                  'Page 2',
+                style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: Colors.white ),
+              ),
+              onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: ((context) => secondPage())));
+                })
+            ],
+          ),
+        ),
       ),
     );
   }

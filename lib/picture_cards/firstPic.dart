@@ -13,11 +13,9 @@ class _firstPicState extends State<firstPic> {
       onTap: () {
         Navigator.pop(context);
       }
-      /* Navigator.push(
-        context, MaterialPageRoute(
-          builder: (context) => const HomePage())) */
       ,
       child: Scaffold(
+        backgroundColor: Color.fromARGB(255, 222, 177, 193),
           body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,7 +23,9 @@ class _firstPicState extends State<firstPic> {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               'hello',
-              style: TextStyle(color: Colors.amber, fontSize: 30),
+              style: TextStyle(
+                color: Color.fromARGB(255, 255, 122, 21),
+                 fontSize: 30, fontWeight: FontWeight.bold),
             )
           ])
         ],
